@@ -1,4 +1,4 @@
-
+import uuid
 
 if __name__ == "__main__":
-    pass
+    print( uuid.uuid4())

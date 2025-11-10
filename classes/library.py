@@ -15,15 +15,33 @@ class Library:
         self.users.append(user)
 
     def borrow_book(self,user_id,book_isbn):
-        pass
+
+        borrow_book_index = self.books.index(book_isbn)
+        user_index = self.users.index(user_id)
+        book = self.books[borrow_book_index]
+        user = self.users[user_index]
+        book.is_available = False
+        user.borrowed_books.append(book)
 
     def return_book(self,user_id,book_isbn):
-        pass
+        book_index = self.books.index(book_isbn)
+        user_index = self.users.index(user_id)
+        book = self.books[book_index]
+        user = self.users[user_index]
+        book.is_available = True
+        del user.borrowed_books[book_index]
 
     def list_available_books(self) -> list[Book]:
-        pass
+        available_books = []
+        for book in self.books:
+            if book.is_available:
+                available_books.append(book)
+        return available_books
 
-    def search_book(self,search):
-        pass
+    def search_book(self, search: str):
+        for book in self.books:
+            if book.title == search or book.title == search:
+                return book
 
+        return None
 
