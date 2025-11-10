@@ -1,8 +1,11 @@
+import uuid
+
+
 class Book:
-    def __init__(self, title: str, auther: str, isbn,is_available:bool ):
+    def __init__(self, title: str, auther: str,is_available:bool ):
         self.title = title
         self.auther = auther
-        self.isnb = isbn
+        self.ISBN = uuid.uuid4()
         self.is_available = True
 
 
